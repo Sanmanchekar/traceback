@@ -1,5 +1,5 @@
 /**
- * RCA Orchestrator Schema - Manifold-inspired types for constraint-based problem solving
+ * Traceback Schema - Manifold-inspired types for constraint-based problem solving
  */
 
 // ============= Core Domain Types =============

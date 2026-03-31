@@ -1,10 +1,10 @@
-# RCA Orchestrator - AI-Powered Root Cause Analysis & Solution Framework
+# Traceback - AI-Powered Root Cause Analysis & Solution Framework
 
 An intelligent orchestration system inspired by Manifold for automated Root Cause Analysis (RCA), solution generation, and implementation with comprehensive rating systems.
 
 ## 🎯 Overview
 
-RCA Orchestrator is an AI-driven framework that:
+Traceback is an AI-driven framework that:
 - Analyzes repository issues through multi-dimensional root cause analysis
 - Generates multiple solution alternatives with detailed ratings
 - Evaluates solutions across security, scalability, maintainability, and performance dimensions
@@ -16,7 +16,7 @@ RCA Orchestrator is an AI-driven framework that:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    RCA Orchestrator                      │
+│                       Traceback                          │
 ├───────────────┬────────────────────┬────────────────────┤
 │  Input Layer  │  Processing Core   │   Output Layer     │
 ├───────────────┼────────────────────┼────────────────────┤
@@ -65,16 +65,16 @@ Multi-dimensional evaluation:
 
 ```bash
 # Install the orchestrator
-npm install -g rca-orchestrator
+npm install -g traceback
 
 # Run RCA on an issue
-rca analyze --repo ./my-repo --issue "Performance degradation in API endpoints"
+traceback analyze --repo ./my-repo --issue "Performance degradation in API endpoints"
 
 # Get solution recommendations
-rca solutions --detailed --format json
+traceback solutions --detailed --format json
 
 # Implement recommended solution
-rca implement --solution-id 1 --validate --dry-run
+traceback implement --solution-id 1 --validate --dry-run
 ```
 
 ## 💡 Features
@@ -106,7 +106,7 @@ rca implement --solution-id 1 --validate --dry-run
 ## 🔧 Configuration
 
 ```yaml
-# rca-config.yaml
+# traceback-config.yaml
 orchestrator:
   mode: comprehensive  # quick | standard | comprehensive
   
@@ -139,9 +139,9 @@ The orchestrator is designed for seamless integration with Claude Code and simil
 
 ```bash
 # In Claude Code
-/rca analyze --issue "Database connection timeout"
-/rca recommend --top 3
-/rca implement --interactive
+/traceback analyze --issue "Database connection timeout"
+/traceback recommend --top 3
+/traceback implement --interactive
 ```
 
 ## 📈 Example Output
@@ -183,7 +183,7 @@ The orchestrator is designed for seamless integration with Claude Code and simil
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/rca-orchestrator.git
+git clone https://github.com/Sanmanchekar/traceback.git
 
 # Install dependencies
 npm install

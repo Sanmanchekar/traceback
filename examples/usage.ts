@@ -1,7 +1,7 @@
 /**
- * RCA Orchestrator - Example Usage
+ * Traceback - Example Usage
  * 
- * This file demonstrates how to use the RCA Orchestrator
+ * This file demonstrates how to use Traceback
  * programmatically in your applications or Claude Code.
  */
 
@@ -121,12 +121,12 @@ async function claudeCodeIntegration() {
   console.log('\n=== Example 3: Claude Code Integration ===\n');
   
   /**
-   * This example shows how RCA Orchestrator can be integrated
+   * This example shows how Traceback can be integrated
    * with Claude Code for seamless AI-powered problem solving
    */
   
   // Simulating Claude Code command
-  const claudeCommand = '/rca analyze --issue "Memory leak in production causing OOM errors"';
+  const claudeCommand = '/traceback analyze --issue "Memory leak in production causing OOM errors"';
   
   console.log('Claude Code Command:', claudeCommand);
   

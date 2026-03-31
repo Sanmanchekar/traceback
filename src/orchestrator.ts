@@ -1,5 +1,5 @@
 /**
- * Main RCA Orchestrator - Coordinates all components
+ * Main Traceback Orchestrator - Coordinates all components
  */
 
 import {

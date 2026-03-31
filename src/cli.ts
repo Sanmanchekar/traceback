@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * RCA Orchestrator CLI - Command-line interface for Claude Code integration
+ * Traceback CLI - Command-line interface for Claude Code integration
  */
 
 import { Command } from 'commander';
@@ -25,14 +25,14 @@ const program = new Command();
 const banner = `
 ╔══════════════════════════════════════════════════════════╗
 ║                                                          ║
-║     RCA ORCHESTRATOR - AI Root Cause Analysis           ║
+║        TRACEBACK - AI Root Cause Analysis               ║
 ║     Manifold-inspired intelligent problem solver        ║
 ║                                                          ║
 ╚══════════════════════════════════════════════════════════╝
 `;
 
 program
-  .name('rca')
+  .name('traceback')
   .description('AI-powered Root Cause Analysis and Solution Generator')
   .version('1.0.0');
 
@@ -72,7 +72,7 @@ program
       process.exit(1);
     }
     
-    const spinner = ora('Initializing RCA Orchestrator...').start();
+    const spinner = ora('Initializing Traceback...').start();
     
     try {
       const orchestrator = new RCAOrchestrator({
