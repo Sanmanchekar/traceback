@@ -426,7 +426,7 @@ export class RCAOrchestrator {
     return [
       {
         id: 'no-downtime',
-        type: ConstraintType.INVARIANT,
+        type: 'invariant' as ConstraintType,
         description: 'Solution must not cause system downtime',
         priority: Priority.HIGH,
         validator: (solution) => ({
@@ -437,7 +437,7 @@ export class RCAOrchestrator {
       },
       {
         id: 'budget-limit',
-        type: ConstraintType.RESOURCE,
+        type: 'resource' as ConstraintType,
         description: 'Solution must be implementable within 2 weeks',
         priority: Priority.MEDIUM,
         validator: (solution) => {

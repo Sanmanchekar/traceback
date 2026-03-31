@@ -4,7 +4,8 @@
   "description": "AI-powered Root Cause Analysis and Solution Generator inspired by Manifold",
   "main": "dist/index.js",
   "bin": {
-    "traceback": "./dist/cli.js"
+    "traceback": "./dist/cli.js",
+    "tb": "./traceback-command.js"
   },
   "scripts": {
     "build": "tsc",

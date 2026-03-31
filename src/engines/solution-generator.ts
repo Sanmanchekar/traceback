@@ -184,7 +184,13 @@ export class SolutionGenerator {
       },
       impact: {
         scope: 'system_wide' as any,
-        affectedComponents: causes.flatMap(c => c.affectedComponents),
+        affectedComponents: causes.flatMap(c => c.affectedComponents).map(name => ({
+          name: name,
+          type: 'service' as any,
+          changeType: 'modify' as any,
+          risk: RiskLevel.MEDIUM,
+          description: 'Component affected by combined solution'
+        })),
         dependencies: [],
         riskLevel: RiskLevel.HIGH,
         rollbackComplexity: Complexity.COMPLEX,
