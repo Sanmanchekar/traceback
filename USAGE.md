@@ -4,11 +4,10 @@
 
 ### Installation
 
-First, install Traceback globally:
+Install Traceback directly from GitHub:
 
 ```bash
-cd /Users/sushant/Documents/Agent/rca-orchestrator
-./install.sh
+curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install.sh | bash
 ```
 
 ### Direct Command Usage in Claude Code
@@ -19,12 +18,12 @@ Now you can use Traceback commands directly in Claude Code:
 
 ### 1. Analyze an Issue
 ```bash
-/traceback analyze "Your issue description here"
+/traceback:analyze "Your issue description here"
 ```
 
 Example:
 ```bash
-/traceback analyze "API endpoints are slow and timing out"
+/traceback:analyze "API endpoints are slow and timing out"
 ```
 
 Output:
@@ -34,7 +33,7 @@ Output:
 
 ### 2. View Solutions
 ```bash
-/traceback solutions
+/traceback:solutions
 ```
 
 This shows all generated solutions with:
@@ -45,7 +44,7 @@ This shows all generated solutions with:
 
 ### 3. Get Recommendation
 ```bash
-/traceback recommend
+/traceback:recommend
 ```
 
 Shows the top recommended solution with:
@@ -55,14 +54,14 @@ Shows the top recommended solution with:
 
 ### 4. Implement a Solution
 ```bash
-/traceback implement solution-1
+/traceback:implement solution-1
 ```
 
 Shows implementation steps for the chosen solution.
 
 ### 5. Check Status
 ```bash
-/traceback status
+/traceback:status
 ```
 
 Shows current analysis status and results.
@@ -72,7 +71,7 @@ Shows current analysis status and results.
 Here's how you would use it in Claude Code:
 
 ```
-You: /traceback analyze "Database queries are taking too long causing API timeouts"
+You: /traceback:analyze "Database queries are taking too long causing API timeouts"
 
 Claude: [Runs analysis]
 Found 3 root causes:
@@ -84,7 +83,7 @@ Generated 5 solutions
 ⭐ Recommended: Implement query optimization with eager loading
    Score: 9.2/10
 
-You: /traceback solutions
+You: /traceback:solutions
 
 Claude: [Shows all solutions with ratings]
 1. Implement query optimization with eager loading ⭐
@@ -99,7 +98,7 @@ Claude: [Shows all solutions with ratings]
    Overall Score: 7.8/10
    Approach: refactor
 
-You: /traceback implement solution-1
+You: /traceback:implement solution-1
 
 Claude: [Shows implementation plan]
 🔧 Implementation Plan for: Implement query optimization with eager loading
@@ -113,34 +112,34 @@ Claude: [Shows implementation plan]
 
 | Command | Description | Example |
 |---------|-------------|---------|
-| `/traceback analyze "issue"` | Analyze an issue | `/traceback analyze "slow API"` |
-| `/traceback solutions` | List all solutions | `/traceback solutions` |
-| `/traceback recommend` | Get top recommendation | `/traceback recommend` |
-| `/traceback implement <id>` | Show implementation steps | `/traceback implement solution-1` |
-| `/traceback status` | Check current status | `/traceback status` |
+| `/traceback:analyze "issue"` | Analyze an issue | `/traceback:analyze "slow API"` |
+| `/traceback:solutions` | List all solutions | `/traceback:solutions` |
+| `/traceback:recommend` | Get top recommendation | `/traceback:recommend` |
+| `/traceback:implement <id>` | Show implementation steps | `/traceback:implement solution-1` |
+| `/traceback:status` | Check current status | `/traceback:status` |
 
 ## Advanced Options
 
 ### Analysis Modes
 ```bash
-/traceback analyze "issue" --mode quick     # Fast analysis
-/traceback analyze "issue" --mode standard  # Default
-/traceback analyze "issue" --mode deep      # Comprehensive analysis
+/traceback:analyze "issue" --mode quick     # Fast analysis
+/traceback:analyze "issue" --mode standard  # Default
+/traceback:analyze "issue" --mode deep      # Comprehensive analysis
 ```
 
 ### Solution Filtering
 ```bash
-/traceback solutions --top 3                # Show top 3 solutions
-/traceback solutions --min-score 8.0        # Only high-scoring solutions
-/traceback solutions --filter-by security   # Sort by security score
+/traceback:solutions --top 3                # Show top 3 solutions
+/traceback:solutions --min-score 8.0        # Only high-scoring solutions
+/traceback:solutions --filter-by security   # Sort by security score
 ```
 
 ## Integration with Claude Code Workflow
 
 1. **Describe your problem**: Type the issue naturally
-2. **Run analysis**: `/traceback analyze "your issue"`
-3. **Review solutions**: `/traceback solutions`
-4. **Choose implementation**: `/traceback implement solution-X`
+2. **Run analysis**: `/traceback:analyze "your issue"`
+3. **Review solutions**: `/traceback:solutions`
+4. **Choose implementation**: `/traceback:implement solution-X`
 5. **Claude helps code**: Claude can then write the actual implementation
 
 ## Key Features
@@ -171,15 +170,15 @@ Claude: [Shows implementation plan]
 
 If commands aren't working:
 
-1. **Ensure installation**: Run `./install.sh` in the traceback directory
-2. **Check path**: Make sure `/usr/local/bin/traceback` exists
-3. **Verify build**: Run `npm run build` to ensure TypeScript is compiled
-4. **Test locally**: Try `./traceback analyze "test issue"` first
+1. **Ensure installation**: Re-run the installation command from GitHub
+2. **Check Claude commands**: Verify files exist in `~/.claude/commands/traceback-*.md`
+3. **Verify build**: Traceback engine should be installed in `~/.traceback/`
+4. **Test installation**: Check that installation completed successfully
 
 ## Next Steps
 
-1. Install Traceback using `./install.sh`
-2. Try your first analysis: `/traceback analyze "your issue"`
+1. Install Traceback using `curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install.sh | bash`
+2. Try your first analysis: `/traceback:analyze "your issue"`
 3. Review and implement solutions
 4. Let Claude help with the actual code implementation
 
