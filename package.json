@@ -1,7 +1,7 @@
 {
   "name": "traceback",
   "version": "1.0.0",
-  "description": "AI-powered Root Cause Analysis and Solution Generator inspired by Manifold",
+  "description": "AI-powered Root Cause Analysis and Solution Generator",
   "main": "dist/index.js",
   "bin": {
     "traceback": "./dist/cli.js",
@@ -22,7 +22,6 @@
     "ai",
     "orchestrator",
     "problem-solving",
-    "manifold",
     "claude-code"
   ],
   "author": "",

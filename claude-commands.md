@@ -1,6 +1,6 @@
 # Traceback Commands for Claude Code
 
-Just like Manifold, Traceback can be used directly in Claude Code with these commands:
+Traceback can be used directly in Claude Code with these commands:
 
 ## Available Commands
 
@@ -46,7 +46,7 @@ Check current analysis status.
 ```
 
 ### `/traceback constraint`
-Add constraints to filter solutions (like Manifold).
+Add constraints to filter solutions.
 
 ```
 /traceback constraint "no downtime" --type invariant
@@ -74,7 +74,7 @@ Add constraints to filter solutions (like Manifold).
 /traceback implement solution-1
 ```
 
-### Example 2: Constrained Analysis (Like Manifold)
+### Example 2: Constrained Analysis
 ```
 # Add constraints first
 /traceback constraint "zero downtime required" --type invariant
@@ -112,7 +112,7 @@ When using Traceback in Claude Code, you can:
    - Together you review solutions
    - Claude implements with your approval
 
-## How It Works (Similar to Manifold)
+## How It Works
 
 1. **Constraint-Based Reasoning**: Define what solutions must satisfy
 2. **Multi-Phase Analysis**: 
@@ -147,16 +147,16 @@ ratings:
     cost: 0.10
 ```
 
-## Comparison with Manifold
+## Features Comparison
 
-| Feature | Manifold | Traceback |
+| Feature | Traditional RCA | Traceback |
 |---------|----------|-----------|
-| Constraint-based | ✅ | ✅ |
-| Multi-agent | ✅ | ✅ (via RCA Engine) |
+| Constraint-based | ❌ | ✅ |
+| Multi-agent | ❌ | ✅ (via RCA Engine) |
 | Solution rating | Manual | Automated (5 dimensions) |
-| Root cause analysis | General | Specialized for RCA |
-| Implementation | Manual | Guided with steps |
-| Evidence tracking | ✅ | ✅ |
+| Root cause analysis | Manual | Automated with confidence scoring |
+| Implementation | Manual | Guided with step-by-step instructions |
+| Evidence tracking | ❌ | ✅ |
 
 ## Getting Started in Claude Code
 
@@ -165,4 +165,4 @@ ratings:
 3. Review solutions together
 4. Implement with Claude's help
 
-That's it! Traceback works just like Manifold but specialized for root cause analysis and solution generation.
+That's it! Traceback provides specialized root cause analysis and solution generation for development teams.

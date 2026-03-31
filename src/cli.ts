@@ -26,7 +26,7 @@ const banner = `
 ╔══════════════════════════════════════════════════════════╗
 ║                                                          ║
 ║        TRACEBACK - AI Root Cause Analysis               ║
-║     Manifold-inspired intelligent problem solver        ║
+║     Intelligent root cause analysis and solution        ║
 ║                                                          ║
 ╚══════════════════════════════════════════════════════════╝
 `;

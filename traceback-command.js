@@ -2,7 +2,7 @@
 
 /**
  * Traceback Command Handler for Claude Code
- * This makes Traceback work like Manifold with /traceback commands
+ * This makes Traceback work with /traceback commands for Claude Code
  */
 
 const { Traceback } = require('./dist/index');

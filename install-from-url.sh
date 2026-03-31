@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Traceback Installation Script - Like Manifold
+# Traceback Installation Script
 # Usage: curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install-from-url.sh | bash
 
 set -e
 
 echo "═══════════════════════════════════════════════════════════"
 echo "     Traceback - AI Root Cause Analysis Tool"
-echo "     Installing from GitHub (like Manifold)..."
+echo "     Installing from GitHub..."
 echo "═══════════════════════════════════════════════════════════"
 echo ""
 

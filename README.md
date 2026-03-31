@@ -1,6 +1,6 @@
 # Traceback - AI-Powered Root Cause Analysis & Solution Framework
 
-An intelligent orchestration system inspired by Manifold for automated Root Cause Analysis (RCA), solution generation, and implementation with comprehensive rating systems.
+An intelligent orchestration system for automated Root Cause Analysis (RCA), solution generation, and implementation with comprehensive rating systems.
 
 ## 🎯 Overview
 
@@ -63,32 +63,32 @@ Multi-dimensional evaluation:
 
 ## 🚀 Quick Start
 
-### Install Traceback (Like Manifold)
+### Install Traceback
 
 ```bash
-# One-line installation from GitHub (no sudo required)
-curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install-local.sh | bash
+# One-line installation from GitHub
+curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install.sh | bash
 ```
 
 ### Use in Claude Code
 
 ```bash
 # Analyze an issue
-/traceback analyze "Performance degradation in API endpoints"
+/traceback:analyze "Performance degradation in API endpoints"
 
 # View solutions
-/traceback solutions
+/traceback:solutions
 
 # Get recommendation
-/traceback recommend
+/traceback:recommend
 
 # Implement solution
-/traceback implement solution-1
+/traceback:implement solution-1
 ```
 
 ## 💡 Features
 
-### Manifold-Inspired Concepts
+### Core Concepts
 
 1. **Constraint-Based Reasoning**: Define hard constraints that solutions must satisfy
 2. **Progressive Refinement**: Iterative solution improvement
@@ -148,9 +148,9 @@ The orchestrator is designed for seamless integration with Claude Code and simil
 
 ```bash
 # In Claude Code
-/traceback analyze --issue "Database connection timeout"
-/traceback recommend --top 3
-/traceback implement --interactive
+/traceback:analyze "Database connection timeout"
+/traceback:recommend --alternatives 3
+/traceback:implement solution-1 --interactive
 ```
 
 ## 📈 Example Output
@@ -214,6 +214,5 @@ Contributions welcome! Please read CONTRIBUTING.md for guidelines.
 
 ## 🔗 Related Projects
 
-- [Manifold](https://github.com/intelligencedev/manifold) - Inspiration for orchestration patterns
 - [Claude Code](https://claude.ai/code) - AI coding assistant integration
 - [Agent Framework](https://github.com/microsoft/agent-framework) - Multi-agent patterns

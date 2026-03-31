@@ -1,6 +1,6 @@
 /**
  * Traceback - Main entry point for Claude Code integration
- * Similar to Manifold's command structure
+ * Command structure for Claude Code integration
  */
 
 import { RCAOrchestrator } from './orchestrator';
@@ -22,7 +22,7 @@ export class Traceback {
   }
 
   /**
-   * Main analyze command - similar to Manifold's analyze
+   * Main analyze command for root cause analysis
    */
   async analyze(issue: string, options?: {
     repo?: string;
@@ -41,7 +41,7 @@ export class Traceback {
   }
 
   /**
-   * Get solutions with ratings - similar to Manifold's solution generation
+   * Get solutions with comprehensive ratings and filtering
    */
   async solutions(options?: {
     count?: number;
@@ -138,7 +138,7 @@ export class Traceback {
   }
 
   /**
-   * Create constraints - similar to Manifold's constraint system
+   * Create constraints for solution filtering and refinement
    */
   createConstraint(
     type: 'invariant' | 'goal' | 'boundary',

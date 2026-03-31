@@ -1,5 +1,5 @@
 /**
- * Traceback Schema - Manifold-inspired types for constraint-based problem solving
+ * Traceback Schema - Types for constraint-based problem solving
  */
 
 // ============= Core Domain Types =============
@@ -84,7 +84,7 @@ export interface RatingFactor {
   description: string;
 }
 
-// ============= Constraint Types (Manifold-inspired) =============
+// ============= Constraint Types =============
 
 export interface Constraint {
   id: string;

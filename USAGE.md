@@ -1,6 +1,6 @@
 # 🚀 Using Traceback in Claude Code
 
-## How to Use Traceback Commands Directly (Like Manifold)
+## How to Use Traceback Commands Directly
 
 ### Installation
 
@@ -13,7 +13,7 @@ cd /Users/sushant/Documents/Agent/rca-orchestrator
 
 ### Direct Command Usage in Claude Code
 
-Now you can use Traceback commands directly in Claude Code, just like Manifold:
+Now you can use Traceback commands directly in Claude Code:
 
 ## Step-by-Step Workflow
 
@@ -150,15 +150,15 @@ Claude: [Shows implementation plan]
 - **Evidence-Based**: All recommendations backed by analysis
 - **Implementation Guidance**: Step-by-step implementation plans
 
-## Comparison with Manifold
+## Command Features
 
-| Feature | Manifold | Traceback |
-|---------|----------|-----------|
-| Command Style | `/manifold <cmd>` | `/traceback <cmd>` |
-| Focus | General orchestration | Root cause analysis |
-| Solution Rating | Manual | Automated (5 dimensions) |
-| Implementation | Manual | Guided steps |
-| Constraints | Yes | Yes (coming soon) |
+| Feature | Description |
+|---------|-------------|
+| Command Style | `/traceback:<cmd>` format with clear namespacing |
+| Focus | Specialized root cause analysis and solution generation |
+| Solution Rating | Automated across 5 dimensions (security, performance, etc.) |
+| Implementation | Guided step-by-step instructions with validation |
+| Constraints | Full constraint-based filtering and recommendation refinement |
 
 ## Tips
 
@@ -183,4 +183,4 @@ If commands aren't working:
 3. Review and implement solutions
 4. Let Claude help with the actual code implementation
 
-That's it! You can now use Traceback commands directly in Claude Code, just like Manifold.
+That's it! You can now use Traceback commands directly in Claude Code for intelligent root cause analysis.

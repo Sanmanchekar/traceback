@@ -1,22 +1,22 @@
-# 📦 Installing Traceback (Like Manifold)
+# 📦 Installing Traceback
 
 ## One-Line Installation
 
-Just like Manifold, install Traceback with a single command:
+Install Traceback with a single command:
 
-### Recommended: Local Installation (No sudo required)
+### Recommended: Standard Installation (No sudo required)
+```bash
+curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install.sh | bash
+```
+
+### Alternative: Using wget:
+```bash
+wget -qO- https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install.sh | bash
+```
+
+### Legacy Installation (Binary approach)
 ```bash
 curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install-local.sh | bash
-```
-
-### Alternative: Global Installation (Requires sudo)
-```bash
-curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install-from-url.sh | bash
-```
-
-### Using wget:
-```bash
-wget -qO- https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install-local.sh | bash
 ```
 
 ## What This Does
@@ -25,8 +25,8 @@ The installation script will:
 1. ✅ Clone Traceback from GitHub
 2. ✅ Install to `~/.traceback`
 3. ✅ Build the TypeScript project
-4. ✅ Create global `traceback` command
-5. ✅ Configure for Claude Code
+4. ✅ Create Claude Code commands
+5. ✅ Configure for Claude Code integration
 6. ✅ Verify installation
 
 ## After Installation
@@ -34,10 +34,10 @@ The installation script will:
 You can immediately use Traceback in Claude Code:
 
 ```bash
-/traceback analyze "your issue"
-/traceback solutions
-/traceback recommend
-/traceback implement solution-1
+/traceback:analyze "your issue"
+/traceback:solutions
+/traceback:recommend
+/traceback:implement solution-1
 ```
 
 ## Alternative Installation Methods
@@ -150,16 +150,16 @@ Claude: I'll implement the query optimization solution...
 - **Repository**: https://github.com/Sanmanchekar/traceback
 - **Issues**: https://github.com/Sanmanchekar/traceback/issues
 
-## Comparison with Manifold Installation
+## Installation Details
 
-| Aspect | Manifold | Traceback |
-|--------|----------|-----------|
-| Install Command | `curl ... \| bash` | `curl ... \| bash` |
-| Install Location | `~/.manifold` | `~/.traceback` |
-| Global Command | `/manifold` | `/traceback` |
-| Claude Integration | Automatic | Automatic |
-| Update Method | Re-run install | Re-run install |
+| Aspect | Traceback |
+|--------|-----------|
+| Install Command | `curl ... \| bash` |
+| Install Location | `~/.traceback` |
+| Commands | `/traceback:*` |
+| Claude Integration | Automatic |
+| Update Method | Re-run install |
 
 ---
 
-That's it! One command and you're ready to use Traceback in Claude Code, just like Manifold! 🚀
+That's it! One command and you're ready to use Traceback in Claude Code! 🚀
