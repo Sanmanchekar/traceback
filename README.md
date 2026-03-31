@@ -63,18 +63,27 @@ Multi-dimensional evaluation:
 
 ## 🚀 Quick Start
 
+### Install Traceback (Like Manifold)
+
 ```bash
-# Install the orchestrator
-npm install -g traceback
+# One-line installation from GitHub
+curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install-from-url.sh | bash
+```
 
-# Run RCA on an issue
-traceback analyze --repo ./my-repo --issue "Performance degradation in API endpoints"
+### Use in Claude Code
 
-# Get solution recommendations
-traceback solutions --detailed --format json
+```bash
+# Analyze an issue
+/traceback analyze "Performance degradation in API endpoints"
 
-# Implement recommended solution
-traceback implement --solution-id 1 --validate --dry-run
+# View solutions
+/traceback solutions
+
+# Get recommendation
+/traceback recommend
+
+# Implement solution
+/traceback implement solution-1
 ```
 
 ## 💡 Features
