@@ -4,14 +4,19 @@
 
 Just like Manifold, install Traceback with a single command:
 
-### Using curl:
+### Recommended: Local Installation (No sudo required)
+```bash
+curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install-local.sh | bash
+```
+
+### Alternative: Global Installation (Requires sudo)
 ```bash
 curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install-from-url.sh | bash
 ```
 
 ### Using wget:
 ```bash
-wget -qO- https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install-from-url.sh | bash
+wget -qO- https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install-local.sh | bash
 ```
 
 ## What This Does

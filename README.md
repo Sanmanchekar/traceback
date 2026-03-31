@@ -66,8 +66,8 @@ Multi-dimensional evaluation:
 ### Install Traceback (Like Manifold)
 
 ```bash
-# One-line installation from GitHub
-curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install-from-url.sh | bash
+# One-line installation from GitHub (no sudo required)
+curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install-local.sh | bash
 ```
 
 ### Use in Claude Code
