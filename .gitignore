@@ -7,11 +7,14 @@ yarn-error.log*
 # Build output
 dist/
 build/
-*.js
 *.js.map
 *.d.ts
 !src/**/*.ts
 !examples/**/*.ts
+# Exclude JS files except specific ones
+*.js
+!traceback-command.js
+!traceback
 
 # IDE
 .vscode/

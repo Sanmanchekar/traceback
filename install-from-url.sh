@@ -66,7 +66,9 @@ npm run build
 
 # Make executables
 chmod +x traceback
-chmod +x traceback-command.js
+if [ -f "traceback-command.js" ]; then
+    chmod +x traceback-command.js
+fi
 
 # Create global command link
 echo -e "${BLUE}🔗 Creating global command...${NC}"
