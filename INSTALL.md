@@ -84,26 +84,48 @@ traceback analyze "test issue"
 
 ## Updating Traceback
 
-To update to the latest version:
+### Method 1: Re-run Installation (Recommended)
+The installation script automatically handles updates:
 
 ```bash
-# Re-run the installation command
-curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install-from-url.sh | bash
+# This will update existing installation
+curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install.sh | bash
 ```
+
+### Method 2: Update Script
+```bash
+# Download and run update script
+curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/update.sh | bash
+```
+
+### What happens during update:
+- ✅ Preserves your settings and data
+- ✅ Updates all Claude Code commands
+- ✅ Installs latest features
+- ✅ No need to restart Claude Code
 
 ## Uninstalling
 
-To remove Traceback:
+### Method 1: Uninstall Script (Recommended)
+```bash
+# Download and run uninstall script
+curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/uninstall.sh | bash
+```
 
+### Method 2: Manual Removal
 ```bash
 # Remove installation
 rm -rf ~/.traceback
 
-# Remove global command
-sudo rm /usr/local/bin/traceback
+# Remove Claude Code commands
+rm -f ~/.claude/commands/traceback-*.md
 
-# Remove Claude config
-rm ~/.claude/traceback.json
+# Remove any command links
+rm -f ~/.local/bin/traceback
+sudo rm -f /usr/local/bin/traceback
+
+# Remove config
+rm -f ~/.claude/traceback.json
 ```
 
 ## Troubleshooting

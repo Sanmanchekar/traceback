@@ -44,8 +44,20 @@ echo -e "${GREEN}✅ Prerequisites satisfied${NC}"
 echo -e "${BLUE}📁 Creating Claude Code commands directory...${NC}"
 mkdir -p "$CLAUDE_COMMANDS_DIR"
 
-# Clean up any existing installation
-echo -e "${YELLOW}🧹 Cleaning up previous installation...${NC}"
+# Check for existing installation
+if [ -d "$TRACEBACK_DIR" ]; then
+    echo -e "${YELLOW}⚠️  Existing installation found${NC}"
+    echo -e "${BLUE}🔄 Updating to latest version...${NC}"
+    # Backup existing data if needed
+    if [ -f "$TRACEBACK_DIR/.traceback-data" ]; then
+        cp "$TRACEBACK_DIR/.traceback-data" "/tmp/.traceback-data.backup"
+    fi
+else
+    echo -e "${BLUE}📦 Fresh installation...${NC}"
+fi
+
+# Clean up temp directory
+echo -e "${YELLOW}🧹 Preparing installation...${NC}"
 rm -rf "$TEMP_DIR"
 rm -f "$CLAUDE_COMMANDS_DIR"/traceback-*.md
 

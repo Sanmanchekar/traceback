@@ -72,6 +72,20 @@ Multi-dimensional evaluation:
 curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install.sh | bash
 ```
 
+### Update Existing Installation
+
+```bash
+# Re-run install command (auto-detects and updates)
+curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install.sh | bash
+```
+
+### Uninstall
+
+```bash
+# Complete removal
+curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/uninstall.sh | bash
+```
+
 ### Use in Claude Code
 
 ```bash
