@@ -24,8 +24,9 @@ LOCAL_BIN="$HOME/.local/bin"
 
 # Confirm uninstallation
 echo -e "${YELLOW}⚠️  This will remove Traceback completely from your system${NC}"
+echo ""
 read -p "Are you sure you want to uninstall? (y/N): " -n 1 -r
-echo
+echo ""
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     echo -e "${BLUE}Uninstall cancelled${NC}"
     exit 0
