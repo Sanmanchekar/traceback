@@ -325,6 +325,20 @@ When `--fix-failures` is enabled, common issues are automatically resolved:
 - `/traceback:recommend` - Get testing recommendations for solutions
 - `/traceback:rollback` - Rollback if tests fail critically
 
+## 🧹 Automatic Test Cleanup
+
+**Smart cleanup after successful tests**:
+- **Test files removed**: Temporary test files auto-deleted after success
+- **Logs preserved**: Full test output saved in `.traceback/issue-id.json`
+- **Failed tests**: Test files kept for debugging when tests fail
+- **Configurable**: Use `--keep-tests` to preserve files even on success
+
+```bash
+/traceback:test solution-1                    # Auto-cleanup on success
+/traceback:test solution-1 --keep-tests       # Preserve test files
+/traceback:test solution-1 --cleanup-pattern "temp_*"  # Custom cleanup
+```
+
 ## Execution Instructions
 
 When this command is invoked with `$ARGUMENTS`:
@@ -333,16 +347,37 @@ When this command is invoked with `$ARGUMENTS`:
 2. **Load Implementation Details**: Retrieve solution and implementation history
 3. **Prepare Test Environment**:
    - Set up test databases and environments
+   - Track all generated test files for cleanup
    - Configure benchmarking tools and metrics collection
    - Prepare regression baseline data
 4. **Execute Test Suite**:
    - Run tests in appropriate sequence (unit → integration → e2e → performance)
    - Collect metrics and performance data
    - Compare against baselines and targets
-5. **Analyze Results**:
+   - Save all test outputs to JSON logs
+
+5. **Store Test Details** (before cleanup):
+   - Capture complete test output, coverage reports, benchmarks
+   - Save detailed results to attempt history in JSON
+   - Preserve all artifacts and performance data
+   - Generate cleanup file list
+
+6. **Analyze Results**:
    - Evaluate test outcomes against success criteria
    - Detect regressions and performance changes
    - Generate recommendations and next steps
-6. **Generate Report**: Provide comprehensive test results with actionable insights
+
+7. **Cleanup & Finalize**:
+   - **On Success**: Auto-delete temporary test files (unless `--keep-tests`)
+   - **On Failure**: Preserve test files for debugging
+   - Update solution attempt status with results
+   - Complete attempt tracking in JSON
+
+**Test File Cleanup Strategy**:
+```
+✅ Success: Remove temp files, keep logs in JSON
+❌ Failure: Keep all files for debugging
+🔧 Custom: Use --cleanup-pattern for selective cleanup
+```
 
 Requires prior execution of `/traceback:implement` to have solutions available for testing.

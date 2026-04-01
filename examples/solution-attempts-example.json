@@ -1,0 +1,247 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Sanmanchekar/traceback/main/schema/traceback-state.schema.json",
+  "schema_version": 1,
+  "issue": "api-timeout-2024-04-01",
+  "description": "API endpoints timing out under load",
+  "phase": "IMPLEMENTED",
+  "created": "2024-04-01T14:30:00Z",
+  "updated": "2024-04-01T15:45:00Z",
+  
+  "solutions": [
+    {
+      "id": "solution-1",
+      "title": "Query Optimization",
+      "description": "Implement eager loading to eliminate N+1 queries",
+      "ratings": {
+        "security": 9.5,
+        "scalability": 9.0,
+        "maintainability": 8.5,
+        "performance": 9.8,
+        "cost": 7.0
+      },
+      "overall_score": 8.8,
+      "recommended": false,
+      "attempt_count": 2,
+      "last_attempt": "solution-1-attempt-2",
+      "success_history": [],
+      "failure_reasons": [
+        {
+          "attempt_id": "solution-1-attempt-1",
+          "timestamp": "2024-04-01T14:55:00Z",
+          "reason": "Performance regression: latency increased by 50ms",
+          "can_retry": true
+        },
+        {
+          "attempt_id": "solution-1-attempt-2",
+          "timestamp": "2024-04-01T15:10:00Z",
+          "reason": "Breaking API changes detected",
+          "can_retry": false
+        }
+      ]
+    },
+    {
+      "id": "solution-2",
+      "title": "Connection Pooling",
+      "description": "Configure database connection pooling",
+      "ratings": {
+        "security": 8.5,
+        "scalability": 9.2,
+        "maintainability": 9.0,
+        "performance": 8.5,
+        "cost": 8.0
+      },
+      "overall_score": 8.6,
+      "recommended": true,
+      "attempt_count": 1,
+      "last_attempt": "solution-2-attempt-1",
+      "success_history": [
+        {
+          "attempt_id": "solution-2-attempt-1",
+          "timestamp": "2024-04-01T15:45:00Z",
+          "metrics": {
+            "performance_gain": "60%",
+            "response_time": "180ms",
+            "concurrent_requests": "150"
+          }
+        }
+      ],
+      "failure_reasons": []
+    },
+    {
+      "id": "solution-3",
+      "title": "Caching Layer",
+      "description": "Add Redis caching for frequently accessed data",
+      "ratings": {
+        "security": 7.5,
+        "scalability": 8.5,
+        "maintainability": 7.0,
+        "performance": 8.5,
+        "cost": 6.5
+      },
+      "overall_score": 7.6,
+      "recommended": false,
+      "attempt_count": 0,
+      "last_attempt": null,
+      "success_history": [],
+      "failure_reasons": []
+    }
+  ],
+  
+  "solution_attempts": [
+    {
+      "attempt_id": "solution-1-attempt-1",
+      "solution_id": "solution-1",
+      "solution_title": "Query Optimization",
+      "attempt_number": 1,
+      "started_at": "2024-04-01T14:50:00Z",
+      "completed_at": "2024-04-01T14:55:00Z",
+      "status": "rolled_back",
+      "rollback_point": "git:abc123def",
+      "changes_made": [
+        {
+          "description": "Modified UserRepository.findAll() to use eager loading",
+          "file": "src/repositories/UserRepository.js",
+          "lines": "45-67"
+        },
+        {
+          "description": "Updated OrderService to use optimized queries",
+          "file": "src/services/OrderService.js",
+          "lines": "120-135"
+        }
+      ],
+      "test_results": {
+        "unit": "passed",
+        "integration": "failed",
+        "e2e": "not_run"
+      },
+      "performance_impact": {
+        "latency": "+50ms",
+        "memory": "+5MB",
+        "cpu": "-10%"
+      },
+      "failure_reason": "Performance regression: latency increased by 50ms",
+      "logs": [
+        {
+          "timestamp": "2024-04-01T14:51:00Z",
+          "type": "info",
+          "message": "Starting query optimization implementation"
+        },
+        {
+          "timestamp": "2024-04-01T14:52:00Z",
+          "type": "change",
+          "message": "Applied eager loading to UserRepository"
+        },
+        {
+          "timestamp": "2024-04-01T14:54:00Z",
+          "type": "error",
+          "message": "Performance test failed: latency threshold exceeded"
+        }
+      ]
+    },
+    {
+      "attempt_id": "solution-1-attempt-2",
+      "solution_id": "solution-1",
+      "solution_title": "Query Optimization",
+      "attempt_number": 2,
+      "started_at": "2024-04-01T15:00:00Z",
+      "completed_at": "2024-04-01T15:10:00Z",
+      "status": "rolled_back",
+      "rollback_point": "git:def456ghi",
+      "changes_made": [
+        {
+          "description": "Refactored query builder with joins",
+          "file": "src/database/QueryBuilder.js",
+          "lines": "200-250"
+        }
+      ],
+      "test_results": {
+        "unit": "passed",
+        "integration": "passed",
+        "e2e": "failed"
+      },
+      "failure_reason": "Breaking API changes detected",
+      "logs": [
+        {
+          "timestamp": "2024-04-01T15:05:00Z",
+          "type": "warning",
+          "message": "API contract test failed"
+        }
+      ]
+    },
+    {
+      "attempt_id": "solution-2-attempt-1",
+      "solution_id": "solution-2",
+      "solution_title": "Connection Pooling",
+      "attempt_number": 1,
+      "started_at": "2024-04-01T15:20:00Z",
+      "completed_at": "2024-04-01T15:45:00Z",
+      "status": "succeeded",
+      "rollback_point": "git:ghi789jkl",
+      "changes_made": [
+        {
+          "description": "Configured connection pool with optimal settings",
+          "file": "config/database.js",
+          "lines": "10-25"
+        },
+        {
+          "description": "Updated database client initialization",
+          "file": "src/database/client.js",
+          "lines": "5-15"
+        }
+      ],
+      "test_results": {
+        "unit": "passed",
+        "integration": "passed",
+        "e2e": "passed",
+        "performance": "passed"
+      },
+      "performance_impact": {
+        "latency": "-120ms",
+        "memory": "+10MB",
+        "cpu": "-25%",
+        "concurrent_connections": "+100"
+      },
+      "success_metrics": {
+        "response_time_p50": "150ms",
+        "response_time_p99": "350ms",
+        "throughput": "500 req/s",
+        "error_rate": "0.01%"
+      },
+      "logs": [
+        {
+          "timestamp": "2024-04-01T15:21:00Z",
+          "type": "info",
+          "message": "Implementing connection pooling"
+        },
+        {
+          "timestamp": "2024-04-01T15:25:00Z",
+          "type": "success",
+          "message": "Connection pool configured successfully"
+        },
+        {
+          "timestamp": "2024-04-01T15:40:00Z",
+          "type": "success",
+          "message": "All tests passed, performance improved by 60%"
+        }
+      ]
+    }
+  ],
+  
+  "current_solution": {
+    "id": "solution-2",
+    "status": "active",
+    "started_at": "2024-04-01T15:20:00Z",
+    "rollback_point": "git:ghi789jkl"
+  },
+  
+  "convergence": {
+    "status": "CONVERGED",
+    "confidence": 85,
+    "evidence": [
+      "Solution 2 successfully implemented",
+      "Performance targets met (60% improvement)",
+      "All tests passing",
+      "No breaking changes"
+    ]
+  }
+}

@@ -3,20 +3,18 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
 
 # Build output
 dist/
 build/
 *.js.map
 *.d.ts
-!src/**/*.ts
-!examples/**/*.ts
-# Exclude JS files except specific ones
-*.js
-!traceback-command.js
-!traceback
 
-# IDE
+# Compiled binaries (created during installation)
+traceback
+
+# IDE & Editor
 .vscode/
 .idea/
 *.swp
@@ -36,6 +34,9 @@ logs/
 # Testing
 coverage/
 .nyc_output/
+test-results/
+temp_test_*
+benchmark_*
 
 # Cache
 .cache/
@@ -45,3 +46,24 @@ coverage/
 # Temporary files
 tmp/
 temp/
+*.tmp
+*.temp
+
+# Traceback runtime files (user data)
+.traceback/
+*.traceback.json
+*_attempt_*.json
+
+# OS files
+Thumbs.db
+desktop.ini
+
+# Generated documentation
+docs/generated/
+
+# Test artifacts that should be cleaned up
+tests/temp_*
+benchmarks/temp_*
+reports/temp_*
+performance/temp_*
+coverage/temp_*

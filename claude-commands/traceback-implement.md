@@ -327,32 +327,58 @@ The implementation engine includes robust error handling:
 - Override automatic decisions when needed
 - Custom rollback procedures for specific scenarios
 
+## 🔄 Solution Attempt Tracking
+
+**Every implementation is tracked** in `.traceback/issue-id.json`:
+- **Automatic Rollback Points**: Git commit saved before changes
+- **Change Logging**: All modifications recorded in attempt history
+- **Failure Recovery**: Easy rollback with `/traceback:rollback`
+- **Multiple Attempts**: Try different solutions without losing context
+- **Success Metrics**: Performance and test results preserved
+
 ## Related Commands
 
 - `/traceback:analyze` - Initial root cause analysis (prerequisite)
 - `/traceback:recommend` - Get implementation recommendation  
 - `/traceback:solutions` - Review all available solutions
 - `/traceback:status` - Check implementation progress and results
-- `/traceback:rollback` - Execute rollback procedures if needed
+- `/traceback:rollback` - Rollback failed attempts and try alternatives
 
 ## Execution Instructions
 
 When this command is invoked with `$ARGUMENTS`:
 
 1. **Parse Implementation Request**: Extract solution ID and execution options
-2. **Load Solution Details**: Retrieve chosen solution with implementation strategy
-3. **Prepare Execution Environment**:
-   - Validate prerequisites and dependencies
-   - Create backups and rollback plans  
-   - Set up monitoring and validation
-4. **Execute Implementation Phases**:
-   - Follow solution-specific implementation roadmap
-   - Apply dry-run, interactive, or validation modes as specified
-   - Monitor progress and handle errors gracefully
-5. **Validate Results**:
-   - Measure success metrics and performance improvements
-   - Run regression tests and health checks
-   - Document changes and lessons learned
-6. **Provide Next Steps**: Suggest follow-up actions and monitoring procedures
 
-Requires prior execution of `/traceback:analyze` and solution selection.
+2. **Load Solution & History**:
+   - Retrieve solution from `.traceback/issue-id.json`
+   - Check attempt history and failure reasons
+   - Verify solution can be attempted (retry limits)
+
+3. **Create Rollback Point**:
+   - Auto-commit current state: `git commit -am "Pre-solution checkpoint"`
+   - Save commit hash in attempt record
+   - Initialize new solution attempt tracking
+
+4. **Execute Implementation**:
+   - Start solution attempt with rollback point
+   - Log each change to attempt history
+   - Apply dry-run, interactive, or validation modes
+   - Track all modifications in JSON state
+
+5. **Validate & Record Results**:
+   - Run tests and capture results
+   - Measure performance impact
+   - Log success metrics or failure reasons
+   - Update attempt status (succeeded/failed)
+
+6. **Update State & Recommendations**:
+   - Mark solution attempt complete
+   - Update solution recommendations
+   - Save complete history to JSON
+   - Provide rollback command if failed
+
+**On Success**: Solution verified, history preserved in `.traceback/`
+**On Failure**: Use `/traceback:rollback --select recommended` to try next solution
+
+Requires prior execution of `/traceback:analyze` and maintains complete attempt history.
