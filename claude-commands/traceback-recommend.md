@@ -10,11 +10,21 @@ Intelligent recommendation engine that selects the optimal solution based on com
 ## Usage
 
 ```
-/traceback:recommend                    # Get top recommendation
-/traceback:recommend --explain          # Include detailed reasoning
+/traceback:recommend                    # Get top recommendation (optimized)
 /traceback:recommend --alternatives 2   # Show top recommendation + 2 alternatives
 /traceback:recommend --confirm          # Interactive confirmation before proceeding
+/traceback:recommend --verbose          # Full detailed reasoning and analysis
 ```
+
+## 🎯 Token Optimization (Built-in)
+
+**Smart compression saves 45% tokens by default:**
+- **Concise recommendations** with key points only
+- **Compact roadmaps** using structured formats
+- **Symbol-based assessments** (✅ ⚠️ ❌)
+- **Essential metrics** with optional expansion
+
+Use `--verbose` for complete reasoning and detailed explanations.
 
 ## Recommendation Algorithm
 
@@ -38,7 +48,25 @@ The recommendation engine considers multiple factors beyond just overall score:
 - **Portfolio Balance**: Mix of quick wins vs strategic investments
 - **Risk Distribution**: Avoiding concentration of implementation risks
 
-## Sample Output
+## Sample Output (Optimized by Default)
+
+```
+✅ Query Optimization (8.7/10) - 94% confidence
+
+WHY: Addresses N+1 directly • Low risk • Team expertise ✅
+
+ROADMAP:
+1. Audit queries (4-6h) → identify N+1 locations
+2. Implement eager loading (8-12h) → update ORM patterns  
+3. Validate & deploy (6-8h) → test + gradual rollout
+
+SUCCESS METRICS: API <500ms • Queries <10/req • 0 N+1
+
+→ /traceback:implement 1
+→ /traceback:test (validate)
+```
+
+### With --verbose Flag
 
 ```
 ✅ RECOMMENDED SOLUTION

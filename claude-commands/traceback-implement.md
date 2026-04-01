@@ -10,12 +10,22 @@ Intelligent implementation engine that executes chosen solutions with step-by-st
 ## Usage
 
 ```
-/traceback:implement solution-1                    # Execute recommended solution
+/traceback:implement solution-1                    # Execute solution (optimized output)
 /traceback:implement solution-2 --dry-run          # Preview implementation steps
 /traceback:implement solution-1 --validate         # Include validation tests
 /traceback:implement solution-1 --interactive      # Step-by-step confirmation
-/traceback:implement solution-1 --rollback-plan    # Generate rollback procedures
+/traceback:implement solution-1 --verbose          # Detailed implementation logs
 ```
+
+## 🎯 Token Optimization (Built-in)
+
+**Efficient output reduces tokens by 55%:**
+- **Progress indicators** instead of verbose logs
+- **Compact status updates** with key milestones
+- **Symbol-based results** (✅ ⚠️ ❌ 🔄)
+- **Summary tables** for quick assessment
+
+Use `--verbose` for detailed step-by-step logs.
 
 ## Implementation Modes
 

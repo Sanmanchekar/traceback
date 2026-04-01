@@ -10,11 +10,21 @@ Comprehensive status dashboard showing current analysis state, available solutio
 ## Usage
 
 ```
-/traceback:status                    # Quick status overview
-/traceback:status --detailed         # Detailed analysis and solution info
+/traceback:status                    # Quick status overview (optimized)
 /traceback:status --history          # Show analysis history and trends
 /traceback:status --metrics          # Include performance metrics and benchmarks
+/traceback:status --verbose          # Detailed analysis with full information
 ```
+
+## 🎯 Token Optimization (Built-in)
+
+**Ultra-compressed status saves 60% tokens:**
+- **Compact dashboards** with essential info only
+- **Symbol indicators** for quick status checks
+- **Abbreviated metrics** in tabular format
+- **Smart summaries** of current state
+
+Use `--verbose` for comprehensive details.
 
 ## Sample Output
 

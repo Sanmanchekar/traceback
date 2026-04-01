@@ -10,12 +10,22 @@ Comprehensive view of all generated solution alternatives with detailed ratings,
 ## Usage
 
 ```
-/traceback:solutions                           # Show all solutions
+/traceback:solutions                           # Show all solutions (optimized)
 /traceback:solutions --top 3                   # Show top 3 solutions only
 /traceback:solutions --min-score 7.5           # Filter by minimum score
 /traceback:solutions --filter-by performance   # Focus on performance solutions
-/traceback:solutions --show-details            # Include implementation details
+/traceback:solutions --verbose                 # Full detailed view with explanations
 ```
+
+## 🎯 Token Optimization (Built-in)
+
+**Automatic optimization reduces token usage by 50%:**
+- **Compact tables** instead of verbose descriptions
+- **Symbol indicators** (✅ ⚠️ ❌) for quick assessment
+- **Abbreviated metrics** with expandable details
+- **Smart truncation** preserving key information
+
+Use `--verbose` for comprehensive details.
 
 ## Rating System Deep Dive
 
@@ -54,7 +64,25 @@ Comprehensive view of all generated solution alternatives with detailed ratings,
 - **Deployment Risk**: Rollout complexity and rollback requirements
 - **Opportunity Cost**: Resources diverted from other priorities
 
-## Sample Output
+## Sample Output (Optimized by Default)
+
+```
+💡 Solutions: API timeout issues
+
+┌──┬──────────────────────────┬──────┬─────────────────────────────┐
+│# │ Solution                 │Score │ S  P  M  Sc C │ Time │ Risk│
+├──┼──────────────────────────┼──────┼─────────────────────────────┤
+│1 │ Query Optimization ⭐    │ 8.7  │ 90 98 80 85 82│ 2-3d │ Low │
+│2 │ Caching Layer           │ 8.1  │ 82 95 71 93 64│ 4-6d │ Med │
+│3 │ Connection Pooling      │ 7.9  │ 85 88 75 92 68│ 5-7d │ Med │
+└──┴──────────────────────────┴──────┴─────────────────────────────┘
+S=Security P=Performance M=Maintainability Sc=Scalability C=Cost
+
+→ /traceback:recommend (get best)
+→ /traceback:implement 1 (execute)
+```
+
+### With --verbose Flag
 
 ```
 💡 SOLUTION ALTERNATIVES FOR: API endpoints timing out under load

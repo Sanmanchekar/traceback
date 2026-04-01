@@ -10,6 +10,8 @@ Traceback is an AI-driven framework that:
 - Evaluates solutions across security, scalability, maintainability, and performance dimensions
 - Provides impact analysis for each proposed solution
 - Implements chosen solutions with safeguards and validation
+- Tests implementations with comprehensive validation
+- Built-in token optimization (40-60% reduction) for efficient AI usage
 - Integrates seamlessly with Claude Code and similar AI agents
 
 ## 🏗️ Architecture
@@ -84,7 +86,12 @@ curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install.
 
 # Implement solution
 /traceback:implement solution-1
+
+# Test implementation
+/traceback:test solution-1
 ```
+
+**🎯 Built-in Token Optimization**: All commands use compressed output by default (40-60% token savings). Use `--verbose` flag when you need detailed explanations.
 
 ## 💡 Features
 

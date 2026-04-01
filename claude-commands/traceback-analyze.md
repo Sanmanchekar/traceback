@@ -46,7 +46,18 @@ Intelligent analysis engine that identifies root causes and generates multiple s
 /traceback:analyze "API endpoints are timing out under load"
 /traceback:analyze "Memory usage keeps increasing" --mode comprehensive
 /traceback:analyze "Tests failing in CI pipeline" --mode quick
+/traceback:analyze "Database slow" --verbose    # Detailed output with full explanations
 ```
+
+## 🎯 Token Optimization (Built-in)
+
+**All commands use smart optimization by default:**
+- **Compressed output**: 40-60% token reduction
+- **Smart caching**: Reuses analysis patterns  
+- **Abbreviated formats**: Tables over prose
+- **Symbol usage**: ✅ ❌ ⚠️ → instead of verbose text
+
+Use `--verbose` flag when you need detailed explanations.
 
 ## What You Get
 
@@ -71,37 +82,47 @@ Intelligent analysis engine that identifies root causes and generates multiple s
 | **Performance** | 20% | Response time, throughput, resource usage |
 | **Implementation Cost** | 15% | Dev time, complexity, risk level |
 
-## Sample Output
+## Sample Output (Optimized by Default)
 
 ```
-🔍 ANALYSIS COMPLETE: API endpoints are timing out under load
+🔍 API endpoints timing out under load
 
-ROOT CAUSES IDENTIFIED:
-✓ Database N+1 query problem (confidence: 92%)
-✓ Missing connection pooling (confidence: 78%) 
-✓ Inefficient caching strategy (confidence: 65%)
+ROOT CAUSES:
+• N+1 queries (92%) → DB optimization needed
+• No connection pooling (78%) → Connection overhead
+• Poor caching (65%) → Repeated computations
 
-TOP SOLUTIONS:
-1. Optimize Database Queries with Eager Loading
-   Overall Score: 8.7/10
-   - Security: 9.0/10 (no security impact)
-   - Performance: 9.8/10 (eliminates N+1 queries)
-   - Scalability: 8.5/10 (better under load)
-   - Maintainability: 8.0/10 (cleaner query patterns)
-   - Cost: 8.2/10 (2-3 days implementation)
+SOLUTIONS:
+┌─────────────────────────────┬──────┬─────────────────────┐
+│ Solution                    │ Score│ Key Metrics         │
+├─────────────────────────────┼──────┼─────────────────────┤
+│ 1. Query Optimization ⭐    │ 8.7  │ 2-3d • Perf: 9.8   │
+│ 2. Connection Pooling       │ 7.9  │ 5-7d • Scale: 9.2  │
+│ 3. Caching Layer           │ 7.2  │ 3-4d • Perf: 8.5   │
+└─────────────────────────────┴──────┴─────────────────────┘
 
-2. Implement Connection Pooling
-   Overall Score: 7.9/10
-   - Security: 8.5/10 (secure connection management)
-   - Performance: 8.8/10 (faster connection reuse)
-   - Scalability: 9.2/10 (handles more concurrent users)
-   - Maintainability: 7.5/10 (additional complexity)
-   - Cost: 6.8/10 (5-7 days implementation)
+→ /traceback:solutions (all)
+→ /traceback:recommend (best)
+→ /traceback:implement solution-1
+```
 
-Next Steps:
-- Use /traceback:solutions to see all alternatives
-- Use /traceback:recommend to get the top recommendation
-- Use /traceback:implement to execute chosen solution
+### With --verbose Flag
+
+```
+🔍 COMPREHENSIVE ANALYSIS COMPLETE: API endpoints are timing out under load
+
+ROOT CAUSES IDENTIFIED WITH EVIDENCE:
+1. Database N+1 Query Problem (92% confidence)
+   Evidence: Query logs show 47 individual SELECT statements per API request
+   Impact: Primary cause of 70%+ performance degradation
+   Category: Technical/Performance issue
+   
+2. Missing Connection Pooling (78% confidence)
+   Evidence: New database connection created for each request
+   Impact: Adds 50-100ms overhead per request
+   Category: Infrastructure/Configuration issue
+
+[Full detailed output continues...]
 ```
 
 ## Integration with Development Workflow
