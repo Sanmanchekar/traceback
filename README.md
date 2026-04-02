@@ -227,13 +227,11 @@ npm run build
 
 ## 📝 License
 
-**Personal Use License** - FREE for personal and educational use only.
+MIT License
 
-- ✅ **Free for**: Personal projects, learning, academic research, non-commercial open source
-- ❌ **Not free for**: Commercial use, business applications, SaaS products, consulting work
-- 📧 **Commercial licensing**: Contact @Sanmanchekar on GitHub for commercial use
+Copyright (c) 2026 Sanmanchekar
 
-See [LICENSE](LICENSE) file for full details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🤝 Contributing
 
