@@ -272,6 +272,21 @@ Copyright (c) 2026 Sanmanchekar
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## 📚 Complete Command Reference
+
+### Core Workflow Commands
+- `/traceback:analyze` - Analyze issue and identify root causes
+- `/traceback:solutions` - View all solution alternatives with ratings  
+- `/traceback:recommend` - Get top-rated solution recommendation
+- `/traceback:implement` - Execute chosen solution with rollback point
+- `/traceback:test` - Validate implementation with comprehensive tests
+
+### Advanced Commands
+- `/traceback:status` - Check current analysis and progress
+- `/traceback:constraint` - Add constraints to filter solutions
+- `/traceback:rollback` - Revert failed attempts, try alternatives
+- `/traceback:workflow` - Complete analyze→implement→test in one command
+
 ## 🤝 Contributing
 
 Contributions welcome! Please read CONTRIBUTING.md for guidelines.
