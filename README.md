@@ -1,6 +1,30 @@
-# Traceback - AI-Powered Root Cause Analysis & Solution Framework
+<div align="center">
 
-An intelligent orchestration system for automated Root Cause Analysis (RCA), solution generation, and implementation with comprehensive rating systems.
+![Traceback Banner](https://img.shields.io/badge/🔍_Traceback-AI_Root_Cause_Analysis-blue?style=for-the-badge)
+  
+# 🔍 Traceback
+
+### AI-Powered Root Cause Analysis & Solution Framework
+
+**🚀 60% Token Savings • 🔄 Smart Rollback • 📊 Complete Solution History**
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/Sanmanchekar/traceback/releases)
+[![Node](https://img.shields.io/badge/node-%3E%3D16.0.0-brightgreen.svg)](https://nodejs.org)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-purple.svg)](https://claude.ai/code)
+[![GitHub Stars](https://img.shields.io/github/stars/Sanmanchekar/traceback?style=social)](https://github.com/Sanmanchekar/traceback/stargazers)
+
+**Intelligent orchestration for automated RCA, solution generation, rollback capability, and implementation with comprehensive rating systems.**
+
+[Installation](#-quick-start) • 
+[Features](#-features) • 
+[Usage](#-integration-with-development-workflow) • 
+[Documentation](#-configuration) • 
+[Contributing](#-contributing)
+
+</div>
+
+---
 
 ## 🎯 Overview
 
@@ -13,6 +37,21 @@ Traceback is an AI-driven framework that:
 - Tests implementations with comprehensive validation
 - Built-in token optimization (40-60% reduction) for efficient AI usage
 - Integrates seamlessly with Claude Code and similar AI agents
+
+<div align="center">
+
+### 📊 Key Highlights
+
+| Feature | Description |
+|---------|------------|
+| **🔄 Rollback System** | Revert failed solutions and try alternatives |
+| **📁 State Persistence** | JSON-based progress tracking across sessions |
+| **🧹 Auto Cleanup** | Smart test file management after validation |
+| **⚡ Token Optimization** | 40-60% reduction in AI token usage |
+| **🎯 Smart Recommendations** | Intent-based solution selection |
+| **📈 Complete History** | Every attempt logged with full context |
+
+</div>
 
 ## 🏗️ Architecture
 
