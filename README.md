@@ -125,11 +125,41 @@ curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install.
 curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/uninstall.sh | bash
 ```
 
-### Use in Claude Code
+## 💻 Usage Options
+
+### CLI Binary (Native, <100ms)
+
+```bash
+# Analyze an issue
+traceback analyze "Performance degradation in API endpoints"
+
+# Complete workflow
+traceback workflow "Database connection timeout"
+
+# View solutions
+traceback solutions
+
+# Get recommendation
+traceback recommend --alternatives 3
+
+# Implement solution
+traceback implement solution-1 --interactive
+
+# Test implementation
+traceback test solution-1
+
+# Check help
+traceback --help
+```
+
+### Claude Code (Slash Commands)
 
 ```bash
 # Analyze an issue
 /traceback:analyze "Performance degradation in API endpoints"
+
+# Complete workflow (streamlined)
+/traceback:workflow "Database connection timeout"
 
 # View solutions
 /traceback:solutions
@@ -202,15 +232,28 @@ implementation:
   rollback_enabled: true
 ```
 
-## 🤖 Claude Code Integration
+## 🤖 Integration Options
 
-The orchestrator is designed for seamless integration with Claude Code and similar AI agents:
+### Claude Code Integration
+
+Slash commands for AI-assisted development:
 
 ```bash
 # In Claude Code
 /traceback:analyze "Database connection timeout"
 /traceback:recommend --alternatives 3
 /traceback:implement solution-1 --interactive
+```
+
+### CLI Binary
+
+Native command-line tool for direct terminal use:
+
+```bash
+# In terminal
+traceback analyze "Database connection timeout"
+traceback recommend --alternatives 3
+traceback implement solution-1 --interactive
 ```
 
 ## 📈 Example Output

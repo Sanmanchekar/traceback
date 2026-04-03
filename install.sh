@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# Traceback - Claude Code Installation 
-# Creates Claude Code commands directly for seamless integration
+# Traceback - Claude Code Installation with CLI Binary
+# Creates Claude Code commands and installs native CLI binary
 # Usage: curl -sSL https://raw.githubusercontent.com/Sanmanchekar/traceback/main/install.sh | bash
 
 set -e
 
 echo "═══════════════════════════════════════════════════════════"
 echo "     🔍 Traceback - AI Root Cause Analysis"
-echo "     Installing for Claude Code integration..."
+echo "     Installing Claude Code integration + CLI binary..."
 echo "═══════════════════════════════════════════════════════════"
 echo ""
 
@@ -24,6 +24,7 @@ REPO_URL="https://github.com/Sanmanchekar/traceback.git"
 TEMP_DIR="/tmp/traceback-install"
 CLAUDE_COMMANDS_DIR="$HOME/.claude/commands"
 TRACEBACK_DIR="$HOME/.traceback"
+BIN_DIR="/usr/local/bin"
 
 # Prerequisites check
 echo -e "${BLUE}🔍 Checking prerequisites...${NC}"
@@ -164,6 +165,24 @@ EOF
     fi
 done
 
+# Install CLI binary
+echo -e "${BLUE}🚀 Installing CLI binary...${NC}"
+if [ -f "$TEMP_DIR/bin/traceback" ]; then
+    # Check if we need sudo for /usr/local/bin
+    if [ -w "$BIN_DIR" ]; then
+        cp "$TEMP_DIR/bin/traceback" "$BIN_DIR/traceback"
+        chmod +x "$BIN_DIR/traceback"
+        echo -e "${GREEN}✅ CLI binary installed (no sudo needed)${NC}"
+    else
+        echo -e "${YELLOW}⚠️  Need sudo to install CLI binary to $BIN_DIR${NC}"
+        sudo cp "$TEMP_DIR/bin/traceback" "$BIN_DIR/traceback"
+        sudo chmod +x "$BIN_DIR/traceback"
+        echo -e "${GREEN}✅ CLI binary installed${NC}"
+    fi
+else
+    echo -e "${YELLOW}⚠️  CLI binary not found, slash commands will still work${NC}"
+fi
+
 # Cleanup
 echo -e "${BLUE}🧹 Cleaning up...${NC}"
 rm -rf "$TEMP_DIR"
@@ -187,34 +206,57 @@ else
     exit 1
 fi
 
+# Check if CLI binary is working
+if command -v traceback &> /dev/null; then
+    echo -e "${GREEN}✅ CLI binary installed and accessible${NC}"
+else
+    echo -e "${YELLOW}⚠️  CLI binary not in PATH (slash commands will work)${NC}"
+fi
+
 echo ""
 echo "═══════════════════════════════════════════════════════════"
 echo -e "${GREEN}✨ Traceback installed successfully!${NC}"
 echo "═══════════════════════════════════════════════════════════"
 echo ""
-echo -e "${BLUE}📚 Available Commands in Claude Code:${NC}"
+
+# Check if CLI binary is available
+if command -v traceback &> /dev/null; then
+    echo -e "${BLUE}⚡ CLI Binary (native, <100ms):${NC}"
+    echo ""
+    echo "  traceback analyze \"your issue description\""
+    echo "  traceback workflow \"your issue description\""
+    echo "  traceback recommend"
+    echo "  traceback implement solution-1"
+    echo "  traceback test solution-1"
+    echo "  traceback --help"
+    echo ""
+fi
+
+echo -e "${BLUE}📚 Claude Code Commands (slash commands):${NC}"
 echo ""
 echo "  /traceback:analyze \"your issue description\""
+echo "  /traceback:workflow \"your issue description\""
 echo "  /traceback:solutions"
 echo "  /traceback:recommend" 
 echo "  /traceback:implement solution-1"
+echo "  /traceback:test solution-1"
 echo "  /traceback:status"
-echo "  /traceback:constraint \"requirement\" --type invariant"
+echo "  /traceback:rollback"
+echo "  /traceback:constraint \"requirement\""
 echo ""
-echo -e "${YELLOW}💡 Example usage:${NC}"
-echo "  You: /traceback:analyze \"API endpoints are slow\""
-echo "  [Traceback analyzes and shows root causes]"
+echo -e "${YELLOW}💡 Quick start:${NC}"
 echo ""
-echo "  You: /traceback:solutions"
-echo "  [Shows rated solution alternatives]" 
+if command -v traceback &> /dev/null; then
+    echo "  CLI:         traceback workflow \"API timeout issue\""
+fi
+echo "  Claude Code: /traceback:workflow \"API timeout issue\""
 echo ""
-echo "  You: /traceback:recommend"
-echo "  [Gets top recommendation]"
-echo ""
-echo "  Claude: I'll implement the query optimization solution..."
-echo ""
-echo -e "${GREEN}🎯 Installation location: $TRACEBACK_DIR${NC}"
-echo -e "${GREEN}📁 Commands location: $CLAUDE_COMMANDS_DIR${NC}"
+echo -e "${GREEN}🎯 Installation locations:${NC}"
+echo "  • Engine: $TRACEBACK_DIR"
+echo "  • Commands: $CLAUDE_COMMANDS_DIR"
+if command -v traceback &> /dev/null; then
+    echo "  • CLI Binary: $(which traceback)"
+fi
 echo ""
 echo -e "${BLUE}🔄 Ready to use! No terminal restart required.${NC}"
 echo ""

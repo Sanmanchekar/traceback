@@ -21,6 +21,7 @@ NC='\033[0m'
 TRACEBACK_DIR="$HOME/.traceback"
 CLAUDE_COMMANDS_DIR="$HOME/.claude/commands"
 LOCAL_BIN="$HOME/.local/bin"
+BIN_DIR="/usr/local/bin"
 
 # Confirm uninstallation
 echo -e "${YELLOW}⚠️  This will remove Traceback completely from your system${NC}"
@@ -45,16 +46,33 @@ fi
 echo -e "  Removing Claude Code commands..."
 rm -f "$CLAUDE_COMMANDS_DIR"/traceback-*.md 2>/dev/null || true
 
-# Remove local bin if it exists
+# Remove CLI binary from local bin
 if [ -f "$LOCAL_BIN/traceback" ]; then
-    echo -e "  Removing command link..."
+    echo -e "  Removing local CLI binary..."
     rm -f "$LOCAL_BIN/traceback"
 fi
 
-# Remove global bin if it exists (might need sudo)
-if [ -f "/usr/local/bin/traceback" ]; then
-    echo -e "  Removing global command..."
-    sudo rm -f "/usr/local/bin/traceback" 2>/dev/null || rm -f "/usr/local/bin/traceback" 2>/dev/null || true
+# Remove CLI binary from global bin (might need sudo)
+if [ -f "$BIN_DIR/traceback" ]; then
+    echo -e "  Removing global CLI binary..."
+    if [ -w "$BIN_DIR" ]; then
+        rm -f "$BIN_DIR/traceback"
+        echo -e "${GREEN}  ✅ CLI binary removed${NC}"
+    else
+        echo -e "${YELLOW}  ⚠️  Need sudo to remove CLI binary${NC}"
+        sudo rm -f "$BIN_DIR/traceback" 2>/dev/null || {
+            echo -e "${YELLOW}  ⚠️  Could not remove CLI binary (may need manual removal)${NC}"
+        }
+    fi
+fi
+
+# Check for CLI binary in PATH (other locations)
+if command -v traceback &> /dev/null; then
+    BINARY_PATH=$(which traceback)
+    if [ "$BINARY_PATH" != "$BIN_DIR/traceback" ] && [ "$BINARY_PATH" != "$LOCAL_BIN/traceback" ]; then
+        echo -e "${YELLOW}  ⚠️  CLI binary found at: $BINARY_PATH${NC}"
+        echo -e "${YELLOW}      You may want to remove this manually${NC}"
+    fi
 fi
 
 # Remove any config files
